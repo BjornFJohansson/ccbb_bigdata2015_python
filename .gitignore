@@ -4,6 +4,7 @@
 **/*.log
 **/*.blg
 **/*.aux
+**/*.out
 **/*.synctex.gz
 **/.RData
 **/.Rhistory

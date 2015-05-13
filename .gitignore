@@ -1,1 +1,11 @@
+**/*.pyc
+**/.DS_Store
+**/*.bbl
+**/*.log
+**/*.blg
+**/*.aux
+**/*.synctex.gz
+**/.RData
+**/.Rhistory
+**/Rplots.pdf
 _site/

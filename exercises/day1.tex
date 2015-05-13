@@ -1,0 +1,84 @@
+\documentclass{article}[12pt]
+\usepackage[margin=0.5in]{geometry}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage{palatino}
+\usepackage{enumitem}
+
+\hypersetup{
+	colorlinks=true, %set true if you want colored links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=blue,  %choose some color if you want links to stand out
+	urlcolor=blue
+}
+\newcommand{\code}[1]{\textbf{\texttt{#1}}}
+
+\begin{document}
+
+\title{Introduction to Python \\ Day One Exercises}
+\author{Stephanie Spielman \\ \footnotesize{Email: stephanie.spielman@gmail.com}}
+\date{}
+\maketitle{}
+
+\section*{UNIX Exercises}
+
+\begin{enumerate}[itemsep=5ex]
+	\item Launch a Terminal session and navigate to your home directory with the \code{cd} command. Remember, there are three ways to do this:
+		\begin{Verbatim}[fontsize=\small,xleftmargin=-2.5cm,commandchars=+\[\]]
+		+textbf[cd]
+		+textbf[cd ~]
+		+textbf[cd /path/to/home/directory/] # replace your home directory's full path
+		\end{Verbatim}
+		Using the commands \code{cd}, \code{pwd}, and \code{ls} (and \code{ls -la}), examine the directory structure of your system. Spend a few minutes figuring out where different files and directories are located so that you understand your file system organization by navigating forward into sub-directories and back into parent directories and listing contents.
+	
+	\item Navigate to your home directory, and perform the following tasks. After performing a task that copies, moves, or removes a file/directory, enter the command \code{ls} to see how things have changed.
+	\begin{enumerate}[itemsep=2ex]
+		\item Use the command \code{mkdir} to create a new directory called ``blob".
+		
+		\item Use the command \code{touch} to create a new file called ``blerg.txt".
+		
+		\item Use the command \code{echo} along with the symbol \code{>} to add the sentence ``I'm writing to a file!" to blerg.txt.
+		
+		\item Use the command \code{mv} to move this file into the directory blob. Then, enter \code{ls}. What do you notice?
+		
+		\item Navigate into the directory "blob". Make a copy of blerg.txt called ``blerg2.txt".
+		
+		\item Use the command \code{echo} and the symbol \code{>} to write the line ``Another sentence!" to blerg2.txt. Now use \code{less} to examine the contents of blerg2.txt. What do you notice?
+		
+		\item Make a new copy of the file blerg.txt using the command \code{cp}, called blerg3.txt. Enter \code{ls}. What files now exist in this directory?
+		
+		\item \emph{Append} the line ``Another sentence!" to blerg3.txt using \code{echo} and the symbol \code{>>}. 
+		
+		\item Navigate back to your home directory (try using the code \code{cd ..} for this), and use the command \code{rm -r} to delete the blob directory.	
+	
+		\item Use the \code{rm} command to delete the file blerg.txt.
+	\end{enumerate} 
+	
+	\item Perform the following tasks:
+		\begin{enumerate}[itemsep=2ex]
+			\item Use the command \code{touch} to create a file "gobble.txt". Create these files in a single line of code, as in, only use \code{touch} once!
+			
+			\item Use \code{echo} and \code{>} to add the line "The turkey goes gobble gobble gobble." to the file gobble.txt, and confirm that this line was correctly added using \code{less}.
+			
+			\item Use the command \code{cat} to add the contents of gobble.txt to a new file called "turkey.txt". Again, use \code{less} to be sure that turkey.txt contains this sentence.		
+		\end{enumerate}
+	
+	
+	\item Download the file \href{https://github.com/sjspielman/ccbb_bigdata2015_python/exercises/sequences.fasta}{sequences.fasta} and save it to your computer. This file contains sequences from the Influenza virus PB2 gene. Navigate to the directory where this file is located, and perform the following tasks:
+	\begin{enumerate}[itemsep=2ex]
+		\item The UNIX command \code{wc} stands for ``word count". This command counts the number of lines, characters, and bytes in a given file. Enter the command \code{wc sequences.fasta} to display this information. Compare the result with the file size as displayed by \code{ls}. Do you see any overlapping numbers?
+		
+		\item Use \code{wc} with the argument \code{-l} to determine just the number of lines in sequences.fasta.
+		
+		\item Enter the command \code{head sequences.fasta} to view the top few 10 lines of this file. Consult the documentation for \code{head} using the command \code{man head}, and figure out how to specify a different number of lines. Enter \code{q} to exit from the man documentation, and use your new knowledge to display the first 16 lines of the file.
+		 
+		\item Create a new file called "lastseqs.fasta" which contains the \emph{last} 8 lines of sequences.fasta (hint: the command \code{tail}, which is basically the opposite of \code{head} should be useful!). For this task, \emph{do not use} \code{touch}.
+	\end{enumerate}
+			
+	
+
+\end{enumerate}
+
+\end{document}

@@ -1,21 +1,14 @@
-# SJS
-# Script to demonstrate sys, and possibly others
-
-
-import sys
-#from sys import path
-#from sys import *
-
-#print sys.path
-#print sys.argv
-
+from Bio import SeqIO
+from Bio import AlignIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
-from Bio import SeqIO
+from Bio.Alphabet import *
+
+#### Reading in sequences ####
+
+#### Manipulating Seq objects ####
 
 seq = Seq("ACGTC")
-#print dir(seq)
-
 seqrec = SeqRecord(seq)
 
 #print seqrec

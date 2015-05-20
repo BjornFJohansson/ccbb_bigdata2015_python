@@ -26,7 +26,7 @@
 \date{}
 \maketitle{}
 
-\section{Manipulating Sequence Data in BioPython}
+\section*{Working Sequence Data in BioPython}
 
 
 \begin{enumerate}[itemsep=5ex]
@@ -34,21 +34,20 @@
 	\item The first exercise will focus on manipulating sequences in the file "dopamine\_sequences.fasta". Perform the following tasks:
 	
 	\begin{enumerate}[itemsep=2ex]
-		\item Use the SeqIO module to read in the file "dopamine\_sequences.fasta".
+		\item Use the SeqIO module to read and save records from the file "dopamine\_sequences.fasta".
 		\item Determine the length for each sequence, and save this information to a dictionary. The keys should be the sequence ID, and the values should be the length.
-		\item Count the number of guanines per sequence, and again save this information in a dictionary. (Hint: BioPython has implemented certain useful string methods, like \code{.count()} for \code{Seq} object sequences.)
+		\item Translate each sequence to amino acids, and count the number of tryptophans (coded as "W") per sequence. Again, save this information in a dictionary. (Hint: BioPython has implemented certain useful string methods, like \code{.count()} for \code{Seq} object sequences.)
 		\item Re-do parts (b) and (c) by writing \emph{functions} to count the sequence length and determine the number of tryptophans. Each function should take a \emph{single} \code{SeqRecord} object as the argument.
-		\item Create a new file \textcolor{red}{\textbf{with format XXX}}.
 		
 		
 	\end{enumerate}
 	
-	\item The first exercise will focus on manipulating sequences in the \emph{sequence alignment} file "some\_alignment.fasta". Perform the following tasks:
+	\item The first exercise will focus on manipulating sequences in the sequence alignment file "dopamine\_alignment.fasta", from \citet{SpielmanKumarWilke2015}. This file contains the same sequences as does "dopamine\_sequences.fasta", except the sequences are aligned and in amino-acid space. Perform the following tasks:
 		
 	\begin{enumerate}[itemsep=2ex]
-		\item Read in the file 
-		\item Translate the records. These sequences are known to have a motif XYZ at position A. Determine which, if any, of these sequences do not have this motif at that position (hint: remember Python indexing starts from 0, so position A is actually index (A-1)). Print any IDs which do not have this motif.
-		\item Save the file in phylip format. 			
+		\item Use the SeqIO module to read and save records from the file "dopamine\_alignment.fasta".
+		\item Translate each records to amino-acids. These sequences are known to have a motif "NPxxY", where the "xx" pair is either "II", "VV", or "VI", towards the end of their sequence. In this alignment, this motif appears at positions 745 - 750 (although remember that Python indexing starts at 0!). Determine how many sequences have each motif, and then print your results to screen (e.g. \# sequences have NPIIY, \# sequences have NPVIY, and \# sequences have NPVVY). Make sure that the total number of motifs you count equals the number of sequences in the file (you should code this, not manually/visually check it).
+		\item Save these sequences to a new file, called "dopamine\_alignment.phy" in phylip format. Perform this step twice, once using the \code{.convert()} method and once using the \code{.write()} method.
 			
 		\end{enumerate}
 	

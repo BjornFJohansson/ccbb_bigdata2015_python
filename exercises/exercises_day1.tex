@@ -13,7 +13,7 @@
 	linkcolor=blue,  %choose some color if you want links to stand out
 	urlcolor=blue
 }
-\newcommand{\code}[1]{\textbf{\texttt{#1}}}
+\newcommand{\code}[1]{\texttt{#1}}  % let's not use bold for now
 
 \begin{document}
 
@@ -27,9 +27,9 @@
 \begin{enumerate}[itemsep=5ex]
 	\item Launch a Terminal session and navigate to your home directory with the \code{cd} command. Remember, there are three ways to do this:
 		\begin{Verbatim}[fontsize=\small,xleftmargin=-2.5cm,commandchars=+\[\]]
-		+textbf[cd]
-		+textbf[cd ~]
-		+textbf[cd /path/to/home/directory/] # replace your home directory's full path
+		cd
+		cd ~
+		cd /path/to/home/directory/ # replace your home directory's full path
 		\end{Verbatim}
 		Using the commands \code{cd}, \code{pwd}, and \code{ls} (and \code{ls -la}), examine the directory structure of your system. Spend a few minutes (no more than 5!!!) figuring out where different files and directories are located so that you understand your file system organization by navigating forward into sub-directories and back into parent directories and listing contents. \emph{The purpose of this task is to become comfortable with your computer's organization.}
 	
@@ -66,7 +66,7 @@
 %		\end{enumerate}
 	
 	
-	\item For this exercise, you will use the included file sequences.fasta. This file contains sequences from the Influenza virus PB2 gene. Navigate to the directory where this file is located, and perform the following tasks:
+	\item For this exercise, you will use the included file "flu\_sequences.fasta". This file contains sequences from the Influenza virus PB2 gene. You can open this file in a text editor, or use \code{less}, to see its contents. Navigate to the directory where this file is located, and perform the following tasks:
 	\begin{enumerate}[itemsep=2ex]
 		\item The UNIX command \code{wc} stands for "word count". This command counts the number of lines, characters, and bytes in a given file. Enter the command \code{wc sequences.fasta} to display this information. Compare the result with the file size as displayed by \code{ls}. Do you see any overlapping numbers?
 		

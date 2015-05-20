@@ -1,7 +1,7 @@
 # ccbb_bigdata2015_python
 
 
-This github repository contains course materials, designed by SJ Spielman for the Introduction to Python class, part of the [2015 Big Data in Biology Summer School](http://ccbb.biosci.utexas.edu/summerschool.html) run by UT Austin's [Center for Computational Biology and Bioinformatics](http://ccbb.biosci.utexas.edu/).
+This github repository contains course materials, designed by SJ Spielman, for the Introduction to Python class, part of the [2015 Big Data in Biology Summer School](http://ccbb.biosci.utexas.edu/summerschool.html) run by UT Austin's [Center for Computational Biology and Bioinformatics](http://ccbb.biosci.utexas.edu/).
 
 For easier viewing, check out the corresponding github page, [http://sjspielman.org/ccbb_bigdata2015_python](http://sjspielman.org/ccbb_bigdata2015_python).
 

@@ -68,13 +68,13 @@
 	
 	\item For this exercise, you will use the included file "flu\_sequences.fasta". This file contains sequences from the Influenza virus PB2 gene. You can open this file in a text editor, or use \code{less}, to see its contents. Navigate to the directory where this file is located, and perform the following tasks:
 	\begin{enumerate}[itemsep=2ex]
-		\item The UNIX command \code{wc} stands for "word count". This command counts the number of lines, characters, and bytes in a given file. Enter the command \code{wc sequences.fasta} to display this information. Compare the result with the file size as displayed by \code{ls}. Do you see any overlapping numbers?
+		\item The UNIX command \code{wc} stands for "word count". This command counts the number of lines, words, and bytes in a given file. Enter the command \code{wc flu\_sequences.fasta} to display this information. Compare the result with the file size as displayed by \code{ls -lh}. Do you see any overlapping numbers?
 		
 		\item Use \code{wc} with the argument \code{-l} to determine just the number of lines in sequences.fasta.
 		
-		\item Enter the command \code{head sequences.fasta} to view the top few 10 lines of this file. Consult the documentation for \code{head} using the command \code{man head}, and figure out how to specify a different number of lines. Enter \code{q} to exit from the man documentation, and use your new knowledge to display the first 16 lines of the file.
+		\item Enter the command \code{head flu\_sequences.fasta} to view the top few 10 lines of this file. Consult the documentation for \code{head} using the command \code{man head}, and figure out how to specify a different number of lines. Enter \code{q} to exit from the man documentation, and use your new knowledge to display the first 16 lines of the file.
 		 
-		\item Create a new file called "lastseqs.fasta" which contains the \emph{last} 8 lines of sequences.fasta (hint: the command \code{tail}, which is basically the opposite of \code{head} should be useful!). For this task, \emph{do not use} \code{touch}.
+		\item Create a new file called "lastseqs.fasta" which contains the \emph{last} 8 lines of flu\_sequences.fasta (hint: the command \code{tail}, which is basically the opposite of \code{head} should be useful!). For this task, \emph{do not use} \code{touch}.
 	\end{enumerate}
 \end{enumerate}
 			

@@ -62,17 +62,18 @@ print "My new string is " + new_letters
 joe = "Hi, my name is Joe. I got a wife and three kids. I work in a button factory."
 
 ## (a) Extract the first 10 characters from the string.
-joe1 = joe[10:]
+joe1 = joe[:10]
 
 ## (b) Count of the number of occurrences of the letter "e" in the string.
 num_e = joe.count("e")
 
 ## (c) Extract characters 8 - 14 from the string, and save this as a variable. Then, convert this new string to uppercase.
-joe2 = joe[8:15].upper()
+joe2 = joe[7:14].upper()
 
 ## (d) Convert this string into a list of lower-case words like this: ["hi", "my", "name", "is", "joe", "i", "got", "a", "wife", "and", "three", "kids", "i", "work", "in", "a", "button", "factory"].Forthistask,youwillneedtousethe.split() string method and indexing. Finally, use the len() function to determine how many words are in this new list.
 lower_joe = joe.lower()
 lower_joe2 = lower_joe.replace(".", "")
+lower_joe2 = lower_joe.replace(",", "")
 joe_as_list = lower_joe2.split(" ")
 
 

@@ -169,11 +169,11 @@ new_grades = []
 
 for grade in grades:
     if grade > 95:
-        new_grades.append(grade * 1.1)
+        new_grades.append(grade * 0.9)
     elif grade <= 95 and grade >= 75:
         new_grades.append(grade)
     elif grade < 75: # Note that this could also be else, since no more conditions really exist besides this one.
-        new_grades.append(grade * 0.9)         
+        new_grades.append(grade * 1.1)         
     
 ## (b) The professor has changed his mind: he now wants to use a scaling factor of 0.078325 (instead of 0.1), because why not! Recompute the grades from part 1 using this new scaling. This time, round the grades to 2 decimal places using the function round(). 
     
@@ -182,12 +182,12 @@ new_grades = []
 
 for grade in grades:
     if grade > 95:
-        new = round(grade * 1.078325, 2)
+        new = round(grade * (1. - 0.078325), 2)
         new_grades.append(new)
     elif grade <= 95 and grade >= 75:
         new_grades.append(grade)
     elif grade < 75: 
-        new = round(grade * (1. - 0.078325), 2)
+        new = round(grade * 1.078325, 2)
         new_grades.append(new)         
 
 
@@ -198,12 +198,12 @@ new_grades = []
 
 for grade in grades:
     if grade > 95:
-        new = round(grade * (1.+scale), 2)
+        new = round(grade * (1. - scale), 2)
         new_grades.append(new)
     elif grade <= 95 and grade >= 75:
         new_grades.append(grade)
     elif grade < 75: 
-        new = round(grade * (1.-scale), 2)
+        new = round(grade * (1. + scale), 2)
         new_grades.append(new)         
    
     
@@ -218,12 +218,12 @@ for group in all_grades:
     new_group = []
     for grade in group:
         if grade > 95:
-            new = round(grade * (1.+scale), 2)
+            new = round(grade * (1. - scale), 2)
             new_group.append(new)
         elif grade <= 95 and grade >= 75:
             new_group.append(grade)
         elif grade < 75: 
-            new = round(grade * (1.-scale), 2)
+            new = round(grade * (1. + scale), 2)
             new_group.append(new)   
                    
     new_grades.append(new_group)

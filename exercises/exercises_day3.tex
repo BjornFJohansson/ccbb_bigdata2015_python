@@ -17,7 +17,7 @@
 \newcommand{\code}[1]{\texttt{#1}}  % let's not use bold for now
 \sloppypar
 \setlength\parindent{0pt}
-
+\usepackage{textcomp}
 
 \begin{document}
 
@@ -28,7 +28,7 @@
 
 \section{Defining Functions}
 
-For this set of exercises, you will re-write some of yesterday's exercises as functions. The code doing the actual computation will remain virtually the same, except it will be written in the context of a function and subsequently called. Run each function you write with 2-3 test cases to confirm that it works as expected.
+For this set of exercises, you will re-write some of yesterday\textquotesingle s exercises as functions. The code doing the actual computation will remain virtually the same, except it will be written in the context of a function and subsequently called. \textbf{ After you write each function, run it with 2-3 test cases to confirm that it works as expected!!}
 
 \begin{enumerate}[itemsep=5ex]
 
@@ -46,16 +46,10 @@ For this set of exercises, you will re-write some of yesterday's exercises as fu
 	\end{itemize}
 	The function should return a list of curved grades.
 	
-	\item Write a function to compute the molecular weight of a protein sequence. This function should take a single argument, a protein-sequence string, and it should return a single value, the molecular weight. \\ Use this dictionary in your function:
-	\\ \code{ amino\_weights = \{"A":89.09, "R":174.20, "N":132.12, "D":133.10, "C":121.15, "Q":146.15, "E":147.13, "G":75.07, "H":155.16, "I":131.17, "L":131.17, "K":146.19, "M":149.21, "F":165.19, "P":115.13 "S":105.09, "T":119.12, "W":204.23, "Y":181.19, "V":117.15\}}. 
+	\item Write a function to compute the molecular weight of a protein sequence. This function should take a single argument, a protein-sequence string, and it should return a single value, the molecular weight. Your function should account for the potential presence of ambiguous amino acids (again, compute these weights from average of all weights). Once your function is written, run it on the protein sequence "ABVPOXIRBTQQWS." \\ Use this dictionary in your function:
+	\\ \code{ amino\_weights = \{"A":89.09, "R":174.20, "N":132.12, "D":133.10, "C":121.15, "Q":146.15, "E":147.13, "G":75.07, "H":155.16, "I":131.17, "L":131.17, "K":146.19, "M":149.21, "F":165.19, "P":115.13, "S":105.09, "T":119.12, "W":204.23, "Y":181.19, "V":117.15\}} 
 	
-	\item Run your protein molecular weight function on the protein sequence "AMMLPRXYTIPKKNVVXWQW". Can you figure out why this raised an error? Modify your function such that it can process this string without raising an error (Hint: use the \code{in} operator). For this, you have several options:
-	\begin{itemize}
-		\item You can ignore non-standard amino acids
-		\item You can use the average molecular weight for non-standard amino acids
-		\item You can refuse to calculate a molecular weight if non-standard amino acids are encountered (Hint: use the \code{break} statement, and print a message accordingly).
-	\end{itemize}
-	
+	\item Write a function to determine if a sentence is an alliteration. Your function should take two arguments: the sentence and the alliteration letter. Your function should return the value \code{True} if the sentence is alliteration and \code{False} otherwise. Importantly, note that you can us an \code{if} statement to return different values under different conditions!
 		
 \end{enumerate}
 
@@ -93,7 +87,7 @@ These questions make use of a series of files included in this zip directory.
 		Hint: think about whether the \code{.read()} or \code{.readlines()} method makes the most sense for this task.
 	
 	\item For this question, you are going to save some useful information to a file. Specifically, you will create a \emph{CSV} (comma-separated values) file. This is basically what Excel files are - files with columns of data. The top row is the header, and each subsequent row contains data. Columns of data are separated by commas in csv files (note that there are other types of \emph{delimited} files, like tab-delimited files). 
-	\\\\ You will use the data from the file "dopamine\_sequences.fasta," which contains DNA sequences of vertebrate dopamine receptors published in \citet{SpielmanKumarWilke2015}. For convenience, the separate file "dopamine\_sequences\_dictionary.txt" contains a Python dictionary of these sequences; the keys are sequences IDs, and the values are the sequences. You can copy and paste the contents of "dopamine\_sequences\_dictionary.txt" into the Python script you'll write for this question (tomorrow we will learn how to actually parse the dopamine\_sequences.fasta file itself).
+	\\\\ You will use the data from the file "dopamine\_sequences.fasta," which contains DNA sequences of vertebrate dopamine receptors published in \citet{SpielmanKumarWilke2015}. For convenience, the separate file "dopamine\_sequences\_dictionary.txt" contains a Python dictionary of these sequences; the keys are sequences IDs, and the values are the sequences. You can copy and paste the contents of "dopamine\_sequences\_dictionary.txt" into the Python script you\textquotesingle ll write for this question (tomorrow we will learn how to actually parse the dopamine\_sequences.fasta file itself).
 	\\\\ Now, create a CSV file with two columns: the sequence ID and the sequence length. Follow this general strategy:
 		\begin{enumerate}[itemsep=2ex]
 			\item Collect all information to write to the output file (this has been done for you in the dictionary!)

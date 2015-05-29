@@ -27,11 +27,19 @@
 \maketitle{}
 
 
+All exercises in this worksheet \textbf{must} be completed in Python scripts, and then run from the UNIX command-line with \code{python name\_of\_script.py}. Be sure to avoid spaces in file names!!
+
 \section{Interacting with files}
 
-These questions make use of a series of files included in this zip directory. 
+\textbf{Be sure to always close the file once you are done with it! If you use \code{with} control flow, python will close the file automatically.}
 
 \begin{enumerate}[itemsep=5ex]
+	
+	\item Open the file "lower\_file.txt" in read-mode, and print its contents to screen. For this, you should use the \code{.read()} method, which saves the contents of the file to a single string. Perform this task twice: once using \code{open} and \code{close}, and once using \code{with} control-flow.
+	
+	\item Open the file "lower\_file.txt" in read-mode, and save all lines in this file to a list using the \code{.readlines()} method. Write a new file called "upper\_file.txt" which contains the same contents of "lower\_file.txt" but in upper-case. Try to do this task using a single for-loop, and don't forget that in order to write newlines (the "enter" key) to a file, you must include \code{"\textbackslash n"} in the string you are writing to file!
+	
+	\item Open the file "upper\_file.txt" in read-mode, and \emph{append} the sentence: "I just created this upper-case file!" to the bottom of the file. 
 	
 	\item Open the file "flu\_sequences.fasta" in read-mode, and save the contents of a file as a single string using the \code{.read()} method (be sure to close the file, or use \code{with} control-flow!). Address the following questions using Python:
 	
@@ -39,24 +47,34 @@ These questions make use of a series of files included in this zip directory.
 		\item How many \emph{characters} are in this file? Remember that \code{.read()} saves the entire file as a single string!
 		\item How many \emph{lines} are in this file? (Hint: use the \code{.strip()} method as part of the solution).
 		\item Use a for-loop to print the first 10 lines of the file.
-		\item Open and read the file again, except this time, use the \code{.readlines()} method instead of \code{.read()}. Perform the same three tasks. (Hint: to count the characters, you can either loop over the line list, or use the string method \code{.join()}. This method is the "opposite" of \code{.split()} -- it joins together a list of strings (argument) using a given separator, e.g. \code{" ".join(["a", "b", "c", "d"])} returns the string \code{"a b c d"}.)
+		\item Open and read the file again, except this time, use the \code{.readlines()} method instead of \code{.read()}. Perform the same three tasks. (Hint: to count the characters, loop over the line list and keep a running counter of the length of each line.)
 	\end{enumerate}
+\end{enumerate}
+
+\section{Python modules}
+\begin{enumerate}
 	
-	\item Write a function to return a list of lines in a given file. This function should take one argument, the file name, and return a list of the lines. Use this function as part of your code to perform these tasks on the included files named file1.txt, file2.txt, file3.txt,..., file20.txt (below, they are referred to as file<1-20.txt> for convenience). (Note that the code which generated these files is included in the python scipt \code{generate\_files.py}.)
-	\begin{enumerate}[itemsep=2ex]
-		\item Determine the number of lines in each file. Use a for-loop to loop over files. When writing this for-loop, think about the cleanest way to loop over these file names (hint: it is \emph{not} to loop over a list with contents \code{["file1.txt", "file2.txt", ...]}). Print, for each file, a sentence that reads "file1.txt contains XXX" lines (with file1.txt and XXX replaced accordingly).
-		\item For each file<1-20>.txt, create new files called "file<1-20>\_upper.txt" which contain the full contents of each file, except entirely in upper-case. Note that this is a 2-step process for each file: first read in, and then write the new file. 
-	\end{enumerate}
+	\item For this question, you will use the \code{os} module. In the included zip directory, there are 20 text files named file1.txt, file2.txt, file3.txt,..., file20.txt (below, they are referred to as file<1-20.txt> for convenience). For this question, use python to count the number of lines in each file. You will save all file line-counts to a \code{dictionary}, in which the keys are the file names and the values are the line counts. Once you have created the dictionary, print it to screen to make sure it looks correct.
+	\\ Hint: Use the \code{os} module function \code{os.listdir} to list all files in the current directory and loop over all of these files in order to count their lines. To ensure that you are only counting lines in these text files, use the \code{.startswith()} and \code{.endswith()} method (all files start with "file" and all files end with ".txt").
+
+	\item Create a new file called "file\_full.txt" which contains all contents from each file<1-20>.txt (in order). Again, use \code{os.listdir} to loop over these files. Once this file has been created, use the \code{shutil} module to \emph{move} the file to a different directory on your computer. After this script has run, navigate in your terminal (using the UNIX command \code{cd}) to this directory to confirm that "file\_full.txt" is indeed there.
+
+	\item  Write a \code{function} which counts the number of times a given letter occurs in a file. The function should take two arguments: the file name (including its path) and the letter to count. The function should return the number of occurrences for that letter. \\Hint: In this function, you should open the file, read it using the \code{.read()} method, and then use the \code{.count()} method to count the number of times the letter appears. Perform the following tasks with this function:
 	
-	\item Create a new file called "file\_full.txt" which contains all contents from each file<1-20>.txt (in order). Perform this task twice using two different approaches:
+	\begin{itemize}
+		\item Run this function on all file<1-20.txt> to count the letter "a". For every file which contains more than 100 a's, use the \code{shutil} to \emph{make a copy of this file} called "lots\_fileX.txt". For example, if file10.txt contains more than 100 a's, you should create a second file called "lots\_file10.txt". This will require the \code{os} and the \code{shutil} modules.
+		\item Use the \code{sys} module (specifically the \code{sys.argv} variable) to capture \code{two command-line arguments}: a file on which to run this function and the letter to count. Run the function using the given input parameters, and print a a sentence to the screen summarizing the results.
+		\item Modify your code from the previous point to use the \code{os} module function \code{os.path.exists()}. This function takes a single argument, a path to a file/directory, and returns True or False indicating if the file exists or not. So, before running the function on the command-line provided file, check if the file exists using \code{os.path.exists()}. If the file exists, then proceed as usual. If the file does not exist, print to screen "Your file does not exist!", and then exit immediately with \code{sys.exit()}.
+		\item Now, run the function \emph{from an entirely separate script}. Accomplish this by importing the file with this function into the script you will run. You can run the function on a file of your choice.
+	\end{itemize}
+
+
+\end{enumerate}
+
+
+\section*{Bonus Question!}	
 	
-	\begin{enumerate}[itemsep=2ex]
-		\item Open the "file\_full.txt" a single time for writing and write all contents to this handle.
-		\item Using the "append" mode to open and close the file multiple times for writing.
-	\end{enumerate}
-	Hint: think about whether the \code{.read()} or \code{.readlines()} method makes the most sense for this task.
-	
-	\item For this question, you are going to save some useful information to a file. Specifically, you will create a \emph{CSV} (comma-separated values) file. This is basically what Excel files are - files with columns of data. The top row is the header, and each subsequent row contains data. Columns of data are separated by commas in csv files (note that there are other types of \emph{delimited} files, like tab-delimited files). 
+	For this question, you are going to save some useful information to a file. Specifically, you will create a \emph{CSV} (comma-separated values) file. This is basically what Excel files are - files with columns of data. The top row is the header, and each subsequent row contains data. Columns of data are separated by commas in csv files (note that there are other types of \emph{delimited} files, like tab-delimited files). 
 	\\\\ You will use the data from the file "dopamine\_sequences.fasta," which contains DNA sequences of vertebrate dopamine receptors published in \citet{SpielmanKumarWilke2015}. For convenience, the separate file "dopamine\_sequences\_dictionary.txt" contains a Python dictionary of these sequences; the keys are sequences IDs, and the values are the sequences. You can copy and paste the contents of "dopamine\_sequences\_dictionary.txt" into the Python script you\textquotesingle ll write for this question.
 	\\\\ Now, create a CSV file with two columns: the sequence ID and the sequence length. Follow this general strategy:
 	\begin{enumerate}[itemsep=2ex]
@@ -74,7 +92,6 @@ These questions make use of a series of files included in this zip directory.
 		\item Modify your code and function so that you now write a file with three columns: sequence ID, sequence length, and percent of ambiguous nucleotides per DNA sequence. In this sequence, the character "N" is considered ambiguous (unlike A, C, G, T).
 		
 	\end{enumerate}
-\end{enumerate}	
 
 	
 

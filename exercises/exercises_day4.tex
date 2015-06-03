@@ -39,7 +39,7 @@ All exercises in this worksheet \textbf{must} be completed in Python scripts, an
 	
 	\item Open the file "file1.txt" in read-mode, and save all lines in this file to a list using the \code{.readlines()} method. Write a new file called "upper\_file1.txt" which contains the same contents of "file1.txt" but in upper-case. Try to do this task using a single for-loop, and don't forget that in order to write newlines (the "enter" key) to a file, you must include \code{"\textbackslash n"} in the string you are writing to file!
 	
-	\item Open the file "upper\_file1.txt" in read-mode, and \emph{append} the sentence: "I just created this upper-case file!" to the bottom of the file. 
+	\item Open the file "upper\_file1.txt" in append-mode, and \emph{append} the sentence: "I just created this upper-case file!" to the bottom of the file. 
 	
 	\item Open the file "flu\_sequences.fasta" in read-mode, and save the contents of a file as a single string using the \code{.read()} method (be sure to close the file, or use \code{with} control-flow!). Address the following questions using Python:
 	
@@ -62,8 +62,8 @@ All exercises in this worksheet \textbf{must} be completed in Python scripts, an
 	\item  Write a \code{function} which counts the number of times a given letter occurs in a file. The function should take two arguments: the file name (including its path) and the letter to count. The function should return the number of occurrences for that letter. \\Hint: In this function, you should open the file, read it using the \code{.read()} method, and then use the \code{.count()} method to count the number of times the letter appears. Perform the following tasks with this function:
 	
 	\begin{itemize}
-		\item Run this function on all file<1-20.txt> to count the letter "a". For every file which contains more than 100 a's, use the \code{shutil} to \emph{make a copy of this file} called "lots\_fileX.txt". For example, if file10.txt contains more than 100 a's, you should create a second file called "lots\_file10.txt". This will require the \code{os} and the \code{shutil} modules.
-		\item Use the \code{sys} module (specifically the \code{sys.argv} variable) to capture \code{two command-line arguments}: a file on which to run this function and the letter to count. Run the function using the given input parameters, and print a a sentence to the screen summarizing the results.
+		\item Run this function on all file<1-20.txt> to count the letter "a". For every file which contains more than 100 a's, use the \code{shutil} to \emph{make a copy of this file} called "lots\_fileX.txt". For example, if file10.txt contains more than 100 a's, you should create a second file called "lots\_file10.txt". 
+		\item Use the \code{sys} module (specifically the \code{sys.argv} variable) to capture \emph{two command-line arguments}: a file on which to run this function and the letter to count. Run the function using the given input parameters, and print a a sentence to the screen summarizing the results.
 		\item Modify your code from the previous point to use the \code{os} module function \code{os.path.exists()}. This function takes a single argument, a path to a file/directory, and returns True or False indicating if the file exists or not. So, before running the function on the command-line provided file, check if the file exists using \code{os.path.exists()}. If the file exists, then proceed as usual. If the file does not exist, print to screen "Your file does not exist!", and then exit immediately with \code{sys.exit()}.
 		\item Now, run the function \emph{from an entirely separate script}. Accomplish this by importing the file with this function into the script you will run. You can run the function on a file of your choice.
 	\end{itemize}
